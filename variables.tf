@@ -28,4 +28,8 @@ variable "vpc_id" {
   default = "vpc-0831998a846b20d4c"	
 }
 
+variable "subnet_id"
+  type    = string
+  default = "subnet-0759f98a27a04695f"
+
 variable "mandatory_tags" {}
