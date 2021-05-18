@@ -91,7 +91,7 @@ locals {
 }
 
 module "hashi-demo-vpc" {
-  source                                  = "https://github.com/tfc-get-1111-demo/terraform-aws-vpc.git"
+  source                                  = "github.com/tfc-get-1111-demo/terraform-aws-vpc.git"
   name                                    = "vpc"
   cidr                                    = var.cidr_primary
   azs                                     = var.azs_primary
