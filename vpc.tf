@@ -102,7 +102,6 @@ module "hashi-demo-vpc" {
   enable_s3_endpoint                      = var.enable_s3_endpoint
   enable_dynamodb_endpoint                = var.enable_dynamodb_endpoint
   assign_generated_ipv6_cidr_block        = var.assign_generated_ipv6_cidr_block
-  vpc_flowlogs_cloudwatch_destination_arn = data.terraform_remote_state.logging.outputs.vpc_flowlogs_primary_destination_arn
   interface_endpoint_subnets              = local.interface_endpoint_subnets
   enable_session_manager_endpoints        = var.enable_session_manager_endpoints
   flowlog_format                          = "$${version} $${account-id} $${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport} $${protocol} $${tcp-flags} $${packets} $${bytes} $${start} $${end} $${action} $${log-status}"
