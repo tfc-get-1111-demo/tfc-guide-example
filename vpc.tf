@@ -90,9 +90,8 @@ locals {
   interface_endpoint_subnets = [for key, subnet in local.private_subnets : key if contains(keys(subnet), "interface_endpoint")]
 }
 
-
 module "hashi-demo-vpc" {
-  source = "git@github.com:tfc-get-1111-demo/terraform-aws-vpc.git"
+  source = "github.com:tfc-get-1111-demo/terraform-aws-vpc.git"
   name                                    = "vpc"
   cidr                                    = var.cidr_primary
   azs                                     = var.azs_primary
@@ -112,21 +111,21 @@ module "hashi-demo-vpc" {
 
 output "vpc_id" {
   description = "The ID of the VPC"
-  value       = module.sandbox-vpc.vpc_id
+  value       = module.hashi-demo-vpc.vpc_id
 }
 
 output "public_subnets" {
   description = "List of public subnets in VPC"
-  value       = module.sandbox-vpc.public_subnets
+  value       = module.hashi-demo-vpc.public_subnets
 }
 
 output "private_subnets" {
   description = "List of private subnets in VPC"
-  value       = module.sandbox-vpc.private_subnets
+  value       = module.hashi-demo-vpc.private_subnets
 }
 
 # NAT gateways
 output "nat_public_ips" {
   description = "List of public Elastic IPs created for AWS NAT Gateway"
-  value       = module.sandbox-vpc.nat_public_ips
+  value       = module.hashi-demo-vpc.nat_public_ips
 }
