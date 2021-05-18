@@ -41,6 +41,11 @@ resource "aws_network_interface" "mock_splunk" {
     var.mandatory_tags)
   }
 
+  resource "aws_eip" "mock_splunk" {
+  instance = aws_instance.mock_splunk.id
+  vpc      = true
+}
+
 resource "aws_iam_role" "splunk_instance_profile_role" {
   name = "SplunkInstanceProfileRole"
   path = "/"
