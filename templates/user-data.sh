@@ -31,7 +31,7 @@ EOF
 
 sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.orig
 
-cat <<EOF > /etc/ssh/sshd_config /etc/ssh/sshd_config
+cat <<EOF > /etc/ssh/sshd_config
 ChallengeResponseAuthentication yes
 UsePAM yes
 PasswordAuthentication no
