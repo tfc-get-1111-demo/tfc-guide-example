@@ -17,10 +17,29 @@
 resource "aws_instance" "mock_splunk" {
   ami           = var.instance_ami
   instance_type = var.instance_size
+  
+  network_interface {
+    network_interface_id = aws_network_interface.mock_splunk.id
+    device_index         = 0
+  }
+
   user_data     = file("${path.module}/templates/user-data.sh")
 
-  tags          = var.mandatory_tags
-}
+  tags          = merge({
+      "Name" = "${var.mock_splunk}"
+    },
+    var.mandatory_tags)
+  }}
+
+resource "aws_network_interface" "mock_splunk" {
+  subnet_id   = var.subnet_id
+  private_ips = ["172.16.0.10"]
+
+  tags = merge({
+      "Name" = "primary_network_interface"
+    },
+    var.mandatory_tags)
+  }
 
 resource "aws_iam_role" "splunk_instance_profile_role" {
   name = "SplunkInstanceProfileRole"

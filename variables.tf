@@ -23,4 +23,9 @@ variable "region_secondary" {
   default = "us-west-2"
 }
 
+variable "vpc_id" {
+  type    = string
+  default = "vpc-0831998a846b20d4c"	
+}
+
 variable "mandatory_tags" {}
