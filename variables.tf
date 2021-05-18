@@ -1,8 +1,3 @@
-variable "aws_region" {
-  type    = string
-  default = "us-east-1"
-}
-
 variable "mock_splunk" {
   type    = string
   default = "mock-splunk-instance"
