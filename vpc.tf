@@ -105,7 +105,7 @@ module "hashi-demo-vpc" {
   interface_endpoint_subnets              = local.interface_endpoint_subnets
   enable_session_manager_endpoints        = var.enable_session_manager_endpoints
   flowlog_format                          = "$${version} $${account-id} $${interface-id} $${srcaddr} $${dstaddr} $${srcport} $${dstport} $${protocol} $${tcp-flags} $${packets} $${bytes} $${start} $${end} $${action} $${log-status}"
-  tags                                    = jsondecode(var.mandatory_tags)
+  tags                                    = var.mandatory_tags
 }
 
 output "vpc_id" {
