@@ -42,7 +42,7 @@ resource "aws_network_interface" "mock_splunk" {
     var.mandatory_tags)
   }
 
-  resource "aws_eip" "mock_splunk" {
+resource "aws_eip" "mock_splunk" {
   instance = aws_instance.mock_splunk.id
   vpc      = true
 }

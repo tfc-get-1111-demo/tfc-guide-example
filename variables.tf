@@ -89,3 +89,8 @@ variable "enable_session_manager_endpoints" {
   description = "Configure Session Manager Endpoints on the VPC"
   default     = false
 }
+
+variable "assign_generated_ipv6_cidr_block" {
+  description = "Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block"
+  default     = false
+}
