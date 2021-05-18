@@ -15,8 +15,9 @@
 # }
 
 resource "aws_instance" "mock_splunk" {
-  ami           = var.instance_ami
-  instance_type = var.instance_size
+  ami                  = var.instance_ami
+  instance_type        = var.instance_size
+  iam_instance_profile = aws_iam_instance_profile.splunk_instance_profile.id
   
   network_interface {
     network_interface_id = aws_network_interface.mock_splunk.id
