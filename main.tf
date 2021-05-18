@@ -48,13 +48,23 @@ resource "aws_iam_instance_profile" "splunk_instance_profile" {
   role = aws_iam_role.splunk_instance_profile_role.name
 }
 
-resource "aws_iam_policy" "ReadOnlyAccess" {
-  arn = "arn:aws:iam::aws:policy/ReadOnlyAccess"
-}
+resource "aws_iam_role_policy" "splunk_instance_profile_policy" {
+  name = "SplunkInstanceProfilePolicy"
+  role = aws_iam_role.splunk_instance_profile_role.name
 
-resource "aws_iam_role_policy_attachment" "splunk_instance_profile_policy" {
-  name       = "SplunkInstanceProfilePolicy"
-  role       = aws_iam_role.splunk_instance_profile_role.name
-  policy_arn = aws_iam_policy.ReadOnlyAccess.arn
+  policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+        "ec2:Describe*"
+      ],
+      "Effect": "Allow",
+      "Resource": "*"
+    }
+  ]
+}
+EOF
 }
 
