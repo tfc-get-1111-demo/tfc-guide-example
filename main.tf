@@ -73,6 +73,12 @@ resource "aws_iam_instance_profile" "splunk_instance_profile" {
   role = aws_iam_role.splunk_instance_profile_role.name
 }
 
+resource "aws_iam_policy_attachment" "ssm_managed" {
+  name       = "ssm-managed"
+  roles      = [aws_iam_role.splunk_instance_profile_role.name]
+  policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+}
+
 resource "aws_iam_role_policy" "splunk_instance_profile_policy" {
   name = "SplunkInstanceProfilePolicy"
   role = aws_iam_role.splunk_instance_profile_role.name
