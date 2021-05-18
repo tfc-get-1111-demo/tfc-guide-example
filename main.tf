@@ -17,9 +17,7 @@
 resource "aws_instance" "mock_splunk" {
   ami           = var.instance_ami
   instance_type = var.instance_size
-  user_data     = base64encode(file("/templates/user_data.sh"))
-
-  ec2_associate_public_ip_address = "true"
+  user_data     = file("/templates/user_data.sh")
 
   tags          = var.mandatory_tags
 }
@@ -27,7 +25,7 @@ resource "aws_instance" "mock_splunk" {
 resource "aws_iam_role" "splunk_instance_profile_role" {
   name = "SplunkInstanceProfileRole"
   path = "/"
-  tags = var.tags
+  tags = var.mandatory_tags
 
   assume_role_policy = <<EOF
 {
