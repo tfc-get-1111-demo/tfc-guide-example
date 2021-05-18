@@ -89,7 +89,3 @@ variable "enable_session_manager_endpoints" {
   description = "Configure Session Manager Endpoints on the VPC"
   default     = false
 }
-
-variable "mandatory_tags" {
-  default = null
-}

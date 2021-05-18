@@ -4,6 +4,6 @@ provider "aws" {
 }
 
 # Secondary provider
-provider "aws_secondary" {
+provider "aws-secondary" {
   region = var.region_secondary
 }
