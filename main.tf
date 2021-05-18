@@ -17,7 +17,7 @@
 resource "aws_instance" "mock_splunk" {
   ami           = var.instance_ami
   instance_type = var.instance_size
-  user_data     = file("${path.module}/templates/user_data.sh")
+  user_data     = file("/templates/user_data.sh")
 
   tags          = var.mandatory_tags
 }
