@@ -17,7 +17,7 @@
 resource "aws_instance" "mock_splunk" {
   ami           = var.instance_ami
   instance_type = var.instance_size
-  user_data     = file("/templates/user_data.sh")
+  user_data     = file("${path.module}/templates/user_data.sh")
 
   tags          = var.mandatory_tags
 }
@@ -48,13 +48,13 @@ resource "aws_iam_instance_profile" "splunk_instance_profile" {
   role = aws_iam_role.splunk_instance_profile_role.name
 }
 
-data "aws_iam_policy" "ReadOnlyAccess" {
+resource "aws_iam_policy" "ReadOnlyAccess" {
   arn = "arn:aws:iam::aws:policy/ReadOnlyAccess"
 }
 
-resource "aws_iam_role_policy" "splunk_instance_profile_policy" {
+resource "aws_iam_role_policy_attachment" "splunk_instance_profile_policy" {
   name       = "SplunkInstanceProfilePolicy"
   role       = aws_iam_role.splunk_instance_profile_role.name
-  policy_arn = "${data.aws_iam_policy.ReadOnlyAccess.arn}"
+  policy_arn = aws_iam_policy.ReadOnlyAccess.arn
 }
 
