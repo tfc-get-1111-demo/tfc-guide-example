@@ -29,7 +29,7 @@ resource "aws_instance" "mock_splunk" {
       "Name" = "${var.mock_splunk}"
     },
     var.mandatory_tags)
-  }}
+  }
 
 resource "aws_network_interface" "mock_splunk" {
   subnet_id   = var.subnet_id
