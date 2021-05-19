@@ -8,6 +8,8 @@ variable "instance_size" {
   default = "t3.micro"
 }
 
+variable "instance_profile" {}
+
 variable "subnet_id" {}
 
 variable "region" {}
