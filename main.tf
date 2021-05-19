@@ -10,17 +10,17 @@ module "hashi-demo" {
   }
 }
 
-module "hashi-demo-secondary" {
-  source          = "./modules/mock-splunk"
-  region          = var.region_secondary
-  mock_splunk     = var.mock_splunk
-  instance_size   = var.instance_size
-  subnet_id       = module.hashi-demo-vpc-secondary.public_subnets[0]
-  mandatory_tags  = var.mandatory_tags
-  providers = {
-    aws = aws.secondary
-  }
-}
+# module "hashi-demo-secondary" {
+#   source          = "./modules/mock-splunk"
+#   region          = var.region_secondary
+#   mock_splunk     = var.mock_splunk
+#   instance_size   = var.instance_size
+#   subnet_id       = module.hashi-demo-vpc-secondary.public_subnets[0]
+#   mandatory_tags  = var.mandatory_tags
+#   providers = {
+#     aws = aws.secondary
+#   }
+# }
 
 resource "aws_iam_role" "splunk_instance_profile_role" {
   name = "SplunkInstanceProfileRole"
