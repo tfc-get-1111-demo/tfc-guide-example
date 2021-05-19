@@ -1,12 +1,12 @@
-module "hashi-demo" {
-  source          = "./modules/mock-splunk"
-  region          = var.region_primary
-  mock_splunk     = var.mock_splunk
-  instance_size   = var.instance_size
-  instance_profile = aws_iam_instance_profile.splunk_instance_profile.id
-  subnet_id       = module.hashi-demo-vpc.public_subnets[0]
-  mandatory_tags  = var.mandatory_tags
-}
+# module "hashi-demo" {
+#   source          = "./modules/mock-splunk"
+#   region          = var.region_primary
+#   mock_splunk     = var.mock_splunk
+#   instance_size   = var.instance_size
+#   instance_profile = aws_iam_instance_profile.splunk_instance_profile.id
+#   subnet_id       = module.hashi-demo-vpc.public_subnets[0]
+#   mandatory_tags  = var.mandatory_tags
+# }
 
 # module "hashi-demo-secondary" {
 #   source          = "./modules/mock-splunk"
