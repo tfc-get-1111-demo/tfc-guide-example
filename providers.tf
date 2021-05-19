@@ -1,9 +1,9 @@
-# Default provider
-provider "aws" {
-  region = var.region_primary
-}
+# # Default provider
+# provider "aws" {
+#   region = var.region_primary
+# }
 
-provider "aws" {
-  region = var.region_secondary
-  alias  = "secondary"
-}
+# provider "aws" {
+#   region = var.region_secondary
+#   alias  = "secondary"
+# }

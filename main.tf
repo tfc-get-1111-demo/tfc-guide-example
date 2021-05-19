@@ -1,3 +1,25 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.28.0"
+    }
+  }
+
+  required_version = ">= 0.14.0"
+}
+
+# Default provider
+provider "aws" {
+  profile = "default"
+  region  = var.region_primary
+}
+
+provider "aws" {
+  region = var.region_secondary
+  alias  = "secondary"
+}
+
 module "hashi-demo" {
   source          = "./modules/mock-splunk"
   mock_splunk     = var.mock_splunk
