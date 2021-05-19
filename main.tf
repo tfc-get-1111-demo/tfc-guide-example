@@ -24,6 +24,6 @@ module "hashi-demo-secondary" {
   mandatory_tags  = var.mandatory_tags
   
   providers = {
-    aws = aws.secondary
+    aws.secondary = aws.secondary
   }
 }
