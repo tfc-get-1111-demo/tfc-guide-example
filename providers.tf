@@ -4,6 +4,6 @@ provider "aws" {
 }
 
 provider "aws" {
-  region = var.region_secondary
+  region = "us-west-2"
   alias  = "secondary"
 }
