@@ -142,9 +142,9 @@ locals {
   private_cidr_secondary = cidrsubnet(var.cidr_secondary, 1, 1)
 
   # add some logic to get cidr size and tgw size
-  cidr_size        = split("/", split(".", local.private_cidr_secondary)[3])[1]
-  tgw_cidr_size    = var.tgw_cidr_size
-  tgw_differential = local.tgw_cidr_size - local.cidr_size
+  cidr_size_secondary        = split("/", split(".", local.private_cidr_secondary)[3])[1]
+  tgw_cidr_size_secondary    = var.tgw_cidr_size
+  tgw_differential_secondary = local.tgw_cidr_size - local.cidr_size
 
   # define all public subnets and their cidr ranges
   public_subnets_secondary = {
