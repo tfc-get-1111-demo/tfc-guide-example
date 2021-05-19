@@ -8,11 +8,6 @@ variable "instance_size" {
   default = "t3.micro"
 }
 
-variable "instance_ami" {
-  type    = string
-  default = "ami-09e67e426f25ce0d7" #Ubuntu latest USE1
-}
-
 variable "region_primary" {
   type    = string
   default = "us-east-1"
@@ -21,16 +16,6 @@ variable "region_primary" {
 variable "region_secondary" {
   type    = string
   default = "us-west-2"
-}
-
-variable "vpc_id" {
-  type    = string
-  default = "vpc-0831998a846b20d4c"	
-}
-
-variable "subnet_id" {
-  type    = string
-  default = "subnet-0759f98a27a04695f"
 }
 
 variable "mandatory_tags" {}
