@@ -3,6 +3,7 @@
 #     aws = {
 #       source  = "hashicorp/aws"
 #       version = "~> 3.28.0"
+#       configuration_aliases = [ "aws.secondary" ]
 #     }
 #   }
 
@@ -12,7 +13,7 @@
 # # Default provider
 # provider "aws" {
 #   profile = "default"
-#   region  = var.region_primary
+#   region  = var.region
 # }
 
 # provider "aws" {
