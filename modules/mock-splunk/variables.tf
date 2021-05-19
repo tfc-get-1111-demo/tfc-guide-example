@@ -10,4 +10,6 @@ variable "instance_size" {
 
 variable "subnet_id" {}
 
+variable "region" {}
+
 variable "mandatory_tags" {}
