@@ -10,7 +10,7 @@ provider "aws" {
 
 module "hashi-demo" {
   source          = "./modules/mock-splunk"
-  region          = var.region_secondary
+  region          = var.region_primary
   mock_splunk     = var.mock_splunk
   instance_size   = var.instance_size
   subnet_id       = module.hashi-demo-vpc.public_subnets[0]
