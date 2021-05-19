@@ -246,18 +246,18 @@ output "vpc_id_secondary" {
   value       = module.hashi-demo-vpc-secondary.vpc_id
 }
 
-output "public_subnets" {
+output "public_subnets_secondary" {
   description = "List of public subnets in VPC"
   value       = module.hashi-demo-vpc-secondary.public_subnets
 }
 
-output "private_subnets" {
+output "private_subnets_secondary" {
   description = "List of private subnets in VPC"
   value       = module.hashi-demo-vpc-secondary.private_subnets
 }
 
 # NAT gateways
-output "nat_public_ips" {
+output "nat_public_ips_secondary" {
   description = "List of public Elastic IPs created for AWS NAT Gateway"
   value       = module.hashi-demo-vpc-secondary.nat_public_ips
 }
