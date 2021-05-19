@@ -3,7 +3,7 @@ terraform {
     aws = {
       source  = "hashicorp/aws"
       version = "~> 3.28.0"
-      configuration_aliases = [ aws.secondary ]
+      configuration_aliases = [ secondary ]
     }
   }
 
