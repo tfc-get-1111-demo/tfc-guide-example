@@ -33,7 +33,7 @@ resource "aws_instance" "mock_splunk" {
   }
 
 resource "aws_network_interface" "mock_splunk" {
-  subnet_id   = module.hashi-demo-vpc.public_subnets[0]
+  subnet_id   = var.subnet_id[0]
   #private_ips = ["10.11.12.10"]
 
   tags = merge({
